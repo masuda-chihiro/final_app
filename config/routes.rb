@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
 
-  get 'products/new'
+  get 'sends/new'
 
-  get 'products/edit'
+  get '/carts', to:'purchases#carts'
+  get '/history', to:'purchases#history'
 
-  get 'products/index'
-
-  get 'products/show'
+  get '/product_new', to:'products#new'
+  get '/product_edit', to:'products#edit'
+  get '/product_index', to:'products#index'
+  get '/product_show', to:'products#show'
 
   root 'static_pages#home'
   get 'sessions/new'
-  get 'users/new'
+  #get 'users/new'
   get 'static_pages/home'
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
@@ -19,5 +21,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   resources :users
+  resources :products
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

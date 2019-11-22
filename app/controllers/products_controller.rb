@@ -6,8 +6,19 @@ class ProductsController < ApplicationController
   end
 
   def index
+    @product = Product.all
   end
 
   def show
+    @user = Product.find(params[:id])
   end
-end
+
+
+private
+
+    def product_params
+      params.require(:product).permit(:name, :explanation, :price,
+                                      :stock)
+    end
+
+  end
