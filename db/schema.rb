@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191122050651) do
+ActiveRecord::Schema.define(version: 20191122072330) do
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "company"
@@ -23,12 +23,10 @@ ActiveRecord::Schema.define(version: 20191122050651) do
     t.text "explanation"
     t.integer "price"
     t.integer "stock"
-    t.bigint "purchase_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_products_on_company_id"
-    t.index ["purchase_id"], name: "index_products_on_purchase_id"
   end
 
   create_table "purchases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -38,6 +36,8 @@ ActiveRecord::Schema.define(version: 20191122050651) do
     t.bigint "send_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_purchases_on_product_id"
     t.index ["send_id"], name: "index_purchases_on_send_id"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
@@ -60,10 +60,11 @@ ActiveRecord::Schema.define(version: 20191122050651) do
     t.datetime "updated_at", null: false
     t.string "password"
     t.string "password_confirmation"
+    t.boolean "admin"
   end
 
   add_foreign_key "products", "companies"
-  add_foreign_key "products", "purchases"
+  add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "sends"
   add_foreign_key "purchases", "users"
 end

@@ -15,7 +15,7 @@ User.create!(name:  "Example User",
 
 99.times do |n|
   name  = Faker::Name.name
-  email = Faker::Internet.email
+  email = "example-#{n+1}@railstutorial.org"
   password = "password"
   User.create!(name:  name,
                email: email,
@@ -23,12 +23,12 @@ User.create!(name:  "Example User",
                password_confirmation: password)
 end
 
-99.times do |n|
+100.times do |n|
     name  = Faker::Name.name
-    email = Faker::Internet.email
-    postal_code = 
-    address =
-    card_number =
+    email = "example-#{n+1}@railstutorial.org"
+    postal_code = "123-4567"
+    address = Faker::Address.name
+    card_number = "1234567890"
     Send.create!(name:  name,
                  email: email,
                  postal_code: postal_code,
@@ -36,17 +36,21 @@ end
                  card_number: card_number)
   end
 
-users = User.order(:created_at).take(6)
-50.times do
-  content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
-end
+  10.times do
+    company  = Faker::Company.name
+    Company.create!(company:  company)
+  end
 
-
-# リレーションシップ
-users = User.all
-user  = users.first
-following = users[2..50]
-followers = users[3..40]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
+  
+  100.times do |n|
+    name = Faker::Commerce.product_name
+    explanation = Faker::Lorem.paragraph
+    price = n*50
+    stock = n*10
+    company_id = n+1
+    Product.create!(name: name,
+                    explanation: explanation,
+                    price: price,
+                    stock: stock,
+                    company_id: company_id)
+  end
