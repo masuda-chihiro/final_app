@@ -1,6 +1,12 @@
 <% provide(:title, '商品一覧') %>
 <h1>商品一覧</h1>
 
-  
-   
-<%= link_to "商品詳細へ", '#', class: "btn btn-lg btn-primary" %>
+<ul class="products">
+<% @products.each do |product| %>
+    <li>
+    <a href= "#" ><%= product.name %></a>
+    </br>
+    </li>
+    <% end %>
+</ul>
+

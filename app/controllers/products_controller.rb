@@ -1,16 +1,28 @@
 class ProductsController < ApplicationController
+  
   def new
   end
+
+  def create
+    @user = Product.new(product_params)
+    if @product.save
+      # 保存の成功をここで扱う。
+    else
+      render 'new'
+    end
+  end
+
 
   def edit
   end
 
+
   def index
-    @product = Product.all
+    @products = Product.all
   end
 
   def show
-    @user = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
 
@@ -20,5 +32,4 @@ private
       params.require(:product).permit(:name, :explanation, :price,
                                       :stock)
     end
-
   end
