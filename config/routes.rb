@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'products/new'
+
+  get 'products/edit'
+
+  get 'products/index'
+
+  get 'products/show'
+
   root 'static_pages#home'
   get 'sessions/new'
   get 'users/new'
