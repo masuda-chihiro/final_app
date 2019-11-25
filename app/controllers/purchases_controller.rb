@@ -4,4 +4,6 @@ class PurchasesController < ApplicationController
 
   def history
   end
+
 end
+

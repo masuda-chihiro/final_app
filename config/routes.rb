@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get '/carts', to:'purchases#carts'
   get '/history', to:'purchases#history'
 
-  get '/product_new', to:'products#new'
-  get '/product_edit', to:'products#edit'
-  get '/products_index', to:'products#index'
-  #get '/product_show', to:'products#show'
+  #get '/product_new', to:'products#new'
+  #get '/product_edit', to:'products#edit'
+  #get '/products_index', to:'products#index'
+  #get '/product_show/:id', to:'products#show'
 
   root 'static_pages#home'
   get 'sessions/new'
