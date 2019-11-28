@@ -1,0 +1,15 @@
+<% provide(:title, '購入履歴') %>
+<h1>購入履歴</h1>
+
+<ul class="purchases">
+
+<% @purchases.each do |purchase| %>
+    <li>
+    <p>商品番号　<%= link_to purchase.product_id %></p>
+    <p>商品名　<%= link_to purchase.product.name, product_path(purchase.product.id) %></p>
+    <p>価格　<%= link_to purchase.product.price %>円</p>
+    <p>購入日時　<%= link_to purchase.product.updated_at %></p>
+    </li><br>
+    <% end %>
+
+<b><%= link_to "一覧に戻る", products_path %></b>

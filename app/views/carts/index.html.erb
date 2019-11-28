@@ -1,0 +1,34 @@
+<% provide(:title, '買い物かご') %>
+<h1>買い物かご</h1>
+
+<ul class="carts">
+<table>
+    <tr>
+    <th>
+    　商品番号
+    </th>
+    <th>
+    　商品名
+    </th>
+    <th>
+    　価格
+    </th>
+    <th>
+    　在庫
+    </th>
+    </tr>
+<% @purchases.each do |purchase| %>
+    <tr>
+    <td>　<%= link_to purchase.product_id %></td>
+    <td>　<%= link_to purchase.product.name, product_path(purchase.product.id) %></td>
+    <td>　<%= link_to purchase.product.price %>円</td>
+    <td>　<%= link_to purchase.product.stock %>個</td>
+    </tr>
+    <% end %>
+    </table>
+</ul>
+
+<%= button_to "購入に進む", sends_new_path, :method => 'get' %>
+
+
+<%= link_to "一覧に戻る", products_path %>

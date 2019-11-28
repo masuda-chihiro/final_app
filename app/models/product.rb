@@ -1,6 +1,5 @@
 class Product < ApplicationRecord
-  has_many :purchase
+  has_many :purchases
   belongs_to :company
-
   
 end

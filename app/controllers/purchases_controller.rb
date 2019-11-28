@@ -1,9 +1,11 @@
 class PurchasesController < ApplicationController
-  def carts
+  
+  def index
+    @purchases = Purchase.where(whether: 1, user_id: session[:user_id])
   end
 
-  def history
+  def update
   end
-
+  
 end
 

@@ -1,3 +1,5 @@
 class Company < ApplicationRecord
-    has_many :purchaces
+    has_many :products
+
+    
 end

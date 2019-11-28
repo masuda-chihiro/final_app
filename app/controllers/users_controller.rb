@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :admin_user,     only: :index
 
   def show
     @user = User.find(params[:id])
@@ -17,6 +18,10 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def index
+    @users = User.all
   end
 
   def edit

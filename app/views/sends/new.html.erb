@@ -1,2 +1,27 @@
-<h1>Sends#new</h1>
-<p>Find me in app/views/sends/new.html.erb</p>
+<% provide(:title, "購入情報記入") %>
+<h1>購入情報記入</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@send, url: sends_create_path) do |f| %>
+      <%= render 'shared/error_messages_for_sends' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :postal_code %>
+      <%= f.number_field :postal_code, class: 'form-control' %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address, class: 'form-control' %>
+
+      <%= f.label :card_number %>
+      <%= f.number_field :card_number, class: 'form-control' %>
+
+      <%= f.submit "購入する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

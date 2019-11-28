@@ -1,3 +1,3 @@
 class Send < ApplicationRecord
-    has_many :purchaces
+    has_many :purchases
 end
