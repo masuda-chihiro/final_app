@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'purchases/sales'
   get 'sends/new'
   post 'sends/create'
   get 'sends/show'

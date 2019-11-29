@@ -7,9 +7,13 @@ class SendsController < ApplicationController
   def create
     @send = Send.new(sends_params)
     if @send.save
-      flash[:success] = "商品を購入しました"
+      flash.now[:success] = "商品を購入しました"
+      @purchases = Purchase.where(whether: false, user_id: session[:user_id])
+    @purchases.each do |purchase|
+      purchase.whether = true
+      purchase.save
+    end
       render 'show'
-      #redirect_to 
     else
       render 'new'
     end

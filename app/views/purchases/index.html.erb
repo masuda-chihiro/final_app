@@ -7,8 +7,9 @@
     <li>
     <p>商品番号　<%= link_to purchase.product_id %></p>
     <p>商品名　<%= link_to purchase.product.name, product_path(purchase.product.id) %></p>
-    <p>価格　<%= link_to purchase.product.price %>円</p>
-    <p>購入日時　<%= link_to purchase.product.updated_at %></p>
+    <p>単価　<%= link_to purchase.product.price %>円</p>
+    <p>購入数　<%= link_to purchase.quantity %>個</p>
+    <p>購入日時　<%= link_to purchase.updated_at.to_s(:datetime_jp) %></p>
     </li><br>
     <% end %>
 

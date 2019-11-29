@@ -1,0 +1,6 @@
+<% provide(:title, "売り上げ一覧") %>
+<h1>売り上げ一覧</h1>
+
+<% @purchases.each do |purchase| %>
+<p><%= purchase.product.name %></p>
+<% end %>

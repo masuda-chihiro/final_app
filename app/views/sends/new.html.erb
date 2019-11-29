@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@send, url: sends_create_path) do |f| %>
+    <%= form_for(@send, url: sends_create_path, html: {method: "post"}) do |f| %>
       <%= render 'shared/error_messages_for_sends' %>
 
       <%= f.label :name %>
